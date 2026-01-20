@@ -6,262 +6,165 @@
 <title>Urban Menswear</title>
 
 <style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#f5f5f5;
-}
+body{margin:0;font-family:Arial;background:#f5f5f5}
+.header{background:#111;color:#fff;padding:15px;text-align:center}
+.tabs{display:flex;gap:10px;justify-content:center;background:#fff;padding:10px}
+.tabs button{border:none;padding:10px 18px;border-radius:20px;background:#eee}
+.tabs button.active{background:#111;color:#fff}
 
-/* HEADER */
-.header{
-  background:#000;
-  color:#fff;
-  padding:16px;
-  text-align:center;
-}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
+.card{background:#fff;border-radius:12px;overflow:hidden;cursor:pointer}
+.card img{width:100%;height:220px;object-fit:cover}
+.card .info{padding:10px}
+.price{font-weight:bold}
+.old{text-decoration:line-through;color:#999;font-size:13px}
 
-/* PRODUCT LIST */
-.container{
-  padding:12px;
-}
+.modal{display:none;position:fixed;inset:0;background:#000000cc;z-index:99}
+.modal-box{background:#fff;height:100%;overflow:auto}
+.slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+.slider img{width:100%;height:320px;object-fit:cover;scroll-snap-align:start}
 
-.card{
-  background:#fff;
-  border-radius:14px;
-  margin-bottom:14px;
-  padding:12px;
-  cursor:pointer;
-}
+.section{padding:15px}
+.options span{display:inline-block;padding:8px 12px;border:1px solid #ccc;margin:5px;border-radius:20px;cursor:pointer}
+.options span.active{background:#111;color:#fff}
 
-.card img{
-  width:100%;
-  border-radius:12px;
-}
+input,textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
 
-.title{
-  font-size:18px;
-  font-weight:600;
-  margin-top:8px;
-}
+.btn{background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;margin:15px;font-weight:bold}
 
-.price{
-  font-size:18px;
-  color:#000;
-  margin-top:4px;
-}
-
-.desc{
-  font-size:14px;
-  color:#555;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#fff;
-  z-index:999;
-  overflow-y:auto;
-}
-
-.close{
-  position:fixed;
-  right:16px;
-  top:12px;
-  font-size:26px;
-  cursor:pointer;
-}
-
-/* IMAGE SLIDER */
-.image-slider{
-  position:relative;
-  overflow:hidden;
-  width:100%;
-}
-
-.slides{
-  display:flex;
-  transition:transform 0.3s ease;
-}
-
-.slides img{
-  width:100%;
-  flex-shrink:0;
-}
-
-.nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.4);
-  color:#fff;
-  border:none;
-  font-size:22px;
-  padding:6px 10px;
-}
-
-.prev{ left:10px; }
-.next{ right:10px; }
-
-.dots{
-  text-align:center;
-  margin:8px 0;
-}
-.dots span{
-  width:8px;
-  height:8px;
-  background:#ccc;
-  border-radius:50%;
-  display:inline-block;
-  margin:0 3px;
-}
-.dots .active{ background:#000; }
-
-/* OPTIONS */
-.section{
-  padding:12px;
-}
-
-.option span{
-  display:inline-block;
-  border:1px solid #ccc;
-  padding:6px 12px;
-  border-radius:20px;
-  margin:4px;
-  cursor:pointer;
-}
-.option span.active{
-  border-color:#000;
-  background:#000;
-  color:#fff;
-}
-
-input,textarea{
-  width:100%;
-  padding:10px;
-  margin:6px 0;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-.btn{
-  background:#25D366;
-  color:#fff;
-  padding:14px;
-  text-align:center;
-  border-radius:10px;
-  margin:12px;
-  font-size:18px;
-}
+.close{position:fixed;top:10px;right:15px;font-size:22px;cursor:pointer}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-  <h2>Urban Menswear</h2>
-  <p>Premium Men Clothing • All India Delivery</p>
+<h2>Urban Menswear</h2>
+<p>Premium Jeans & T-Shirts • All India Delivery</p>
 </div>
 
-<div class="container">
-  <div class="card" onclick="openProduct(
-    'Men Slim Fit Jeans',
-    '₹799',
-    'Premium stretch denim',
-    ['jeans1_1','jeans1_2','jeans1_3','jeans1_4']
-  )">
-    <img src="images/jeans1_1.jpg">
-    <div class="title">Men Slim Fit Jeans</div>
-    <div class="price">₹799</div>
-    <div class="desc">Premium stretch denim</div>
-  </div>
+<div class="tabs">
+<button class="active" onclick="showCat('jeans')">Jeans</button>
+<button onclick="showCat('tshirt')">T-Shirts</button>
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="productModal">
-  <div class="close" onclick="closeModal()">✕</div>
+<div id="products" class="grid"></div>
 
-  <div class="image-slider">
-    <div class="slides" id="slides"></div>
-    <button class="nav prev" onclick="prevImg()">‹</button>
-    <button class="nav next" onclick="nextImg()">›</button>
-  </div>
-  <div class="dots" id="dots"></div>
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal">
+<div class="modal-box">
+<span class="close" onclick="closeModal()">✕</span>
 
-  <div class="section">
-    <h3 id="pTitle"></h3>
-    <h2 id="pPrice"></h2>
-    <p id="pDesc"></p>
+<div class="slider" id="slider"></div>
 
-    <h4>Size</h4>
-    <div class="option" id="sizes">
-      <span onclick="select(this)">28</span>
-      <span onclick="select(this)">30</span>
-      <span onclick="select(this)">32</span>
-      <span onclick="select(this)">34</span>
-      <span onclick="select(this)">36</span>
-    </div>
+<div class="section">
+<h3 id="pName"></h3>
+<p class="price" id="pPrice"></p>
 
-    <h4>Color</h4>
-    <div class="option" id="colors">
-      <span onclick="select(this)">Blue</span>
-      <span onclick="select(this)">Black</span>
-      <span onclick="select(this)">Grey</span>
-    </div>
+<h4>Size</h4>
+<div class="options" id="sizes"></div>
 
-    <h4>Your Details</h4>
-    <input id="name" placeholder="Your Name">
-    <input id="phone" placeholder="Phone Number">
-    <textarea id="address" placeholder="Full Address"></textarea>
+<h4>Color</h4>
+<div class="options" id="colors"></div>
 
-    <div class="btn" onclick="orderWhatsApp()">Order on WhatsApp</div>
-  </div>
+<h4>Your Details</h4>
+<input id="cName" placeholder="Your Name">
+<input id="cPhone" placeholder="Mobile Number">
+<textarea id="cAddr" placeholder="Full Address"></textarea>
+
+<div class="btn" onclick="orderNow()">Buy on WhatsApp</div>
+</div>
+</div>
 </div>
 
 <script>
-let current=0, images=[];
+const phone="919318415910";
 
-function openProduct(name,price,desc,imgs){
-  document.getElementById("productModal").style.display="block";
-  document.getElementById("pTitle").innerText=name;
-  document.getElementById("pPrice").innerText=price;
-  document.getElementById("pDesc").innerText=desc;
+const data={
+jeans:[
+{name:"Men Slim Fit Jeans",price:"₹799",old:"₹1999",imgs:["jeans1_1","jeans1_2","jeans1_3","jeans1_4"]},
+{name:"Men Regular Fit Jeans",price:"₹899",old:"₹2199",imgs:["jeans2_1","jeans2_2","jeans2_3","jeans2_4"]},
+{name:"Men Stretch Jeans",price:"₹749",old:"₹1899",imgs:["jeans3_1","jeans3_2","jeans3_3","jeans3_4"]},
+{name:"Men Casual Blue Jeans",price:"₹799",old:"₹1999",imgs:["jeans4_1","jeans4_2","jeans4_3","jeans4_4"]},
+{name:"Men Dark Wash Jeans",price:"₹999",old:"₹2499",imgs:["jeans5_1","jeans5_2","jeans5_3","jeans5_4"]},
+{name:"Men Slim Casual Jeans",price:"₹699",old:"₹1799",imgs:["jeans6_1","jeans6_2","jeans6_3","jeans6_4"]}
+],
+tshirt:[
+{name:"Men Black T-Shirt",price:"₹499",old:"₹999",imgs:["t1_1","t1_2","t1_3","t1_4"]},
+{name:"Men White T-Shirt",price:"₹449",old:"₹899",imgs:["t2_1","t2_2","t2_3","t2_4"]},
+{name:"Men Printed T-Shirt",price:"₹599",old:"₹1199",imgs:["t3_1","t3_2","t3_3","t3_4"]},
+{name:"Men Oversize Tee",price:"₹649",old:"₹1299",imgs:["t4_1","t4_2","t4_3","t4_4"]},
+{name:"Men Polo T-Shirt",price:"₹699",old:"₹1499",imgs:["t5_1","t5_2","t5_3","t5_4"]},
+{name:"Men Sports T-Shirt",price:"₹549",old:"₹1099",imgs:["t6_1","t6_2","t6_3","t6_4"]}
+]
+};
 
-  images=imgs;
-  current=0;
-  slides.innerHTML="";
-  dots.innerHTML="";
+let current;
 
-  imgs.forEach((i,idx)=>{
-    slides.innerHTML+=`<img src="images/${i}.jpg">`;
-    dots.innerHTML+=`<span onclick="goImg(${idx})"></span>`;
-  });
-  update();
+function showCat(cat){
+document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+event.target.classList.add("active");
+render(cat);
 }
 
-function update(){
-  slides.style.transform=`translateX(-${current*100}%)`;
-  [...dots.children].forEach((d,i)=>d.classList.toggle("active",i===current));
+function render(cat){
+const box=document.getElementById("products");
+box.innerHTML="";
+data[cat].forEach(p=>{
+box.innerHTML+=`
+<div class="card" onclick='openProd(${JSON.stringify(p)})'>
+<img src="images/${p.imgs[0]}.jpg">
+<div class="info">
+<b>${p.name}</b><br>
+<span class="price">${p.price}</span> <span class="old">${p.old}</span>
+</div></div>`;
+});
 }
-function nextImg(){ if(current<images.length-1){current++;update();}}
-function prevImg(){ if(current>0){current--;update();}}
-function goImg(i){current=i;update();}
-function closeModal(){productModal.style.display="none";}
 
-function select(el){
-  el.parentNode.querySelectorAll("span").forEach(s=>s.classList.remove("active"));
-  el.classList.add("active");
+function openProd(p){
+current=p;
+document.getElementById("modal").style.display="block";
+document.getElementById("pName").innerText=p.name;
+document.getElementById("pPrice").innerText=p.price;
+
+slider.innerHTML="";
+p.imgs.forEach(i=>slider.innerHTML+=`<img src="images/${i}.jpg">`);
+
+sizes.innerHTML="";
+["S","M","L","XL","28","30","32","34","36"].forEach(s=>{
+sizes.innerHTML+=`<span onclick="sel(this)">${s}</span>`;
+});
+
+colors.innerHTML="";
+["Blue","Black","Grey"].forEach(c=>{
+colors.innerHTML+=`<span onclick="sel(this)">${c}</span>`;
+});
 }
 
-function orderWhatsApp(){
-  let msg=`Product: ${pTitle.innerText}
-Price: ${pPrice.innerText}
-Name: ${name.value}
-Phone: ${phone.value}
-Address: ${address.value}`;
-  window.open("https://wa.me/91XXXXXXXXXX?text="+encodeURIComponent(msg));
+function sel(el){
+el.parentNode.querySelectorAll("span").forEach(s=>s.classList.remove("active"));
+el.classList.add("active");
 }
+
+function orderNow(){
+const size=document.querySelector("#sizes .active")?.innerText||"";
+const color=document.querySelector("#colors .active")?.innerText||"";
+const msg=encodeURIComponent(
+`Product: ${current.name}
+Price: ${current.price}
+Size: ${size}
+Color: ${color}
+
+Name: ${cName.value}
+Phone: ${cPhone.value}
+Address: ${cAddr.value}`
+);
+window.open(`https://wa.me/${phone}?text=${msg}`);
+}
+
+function closeModal(){modal.style.display="none"}
+
+render("jeans");
 </script>
 
 </body>
