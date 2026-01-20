@@ -3,390 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Urban Menswear – Premium Men Store</title>
-
-<meta name="description" content="Premium Men Clothing Store. Easy WhatsApp Order. All India Delivery.">
-<meta property="og:title" content="Urban Menswear – Premium Men Store">
-<meta property="og:description" content="Trusted Online Menswear Store">
-<meta property="og:image" content="images/jeans1_1.jpg">
+<title>Urban Menswear</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-/* ===== MYNTRA STYLE GRID ===== */
+body{margin:0;font-family:Arial;background:#f5f5f5}
+.header{background:#111;color:#fff;padding:15px;text-align:center}
+.tabs{display:flex;gap:10px;justify-content:center;background:#fff;padding:10px}
+.tabs button{border:none;padding:10px 18px;border-radius:20px;background:#eee}
+.tabs button.active{background:#111;color:#fff}
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:12px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.card{
-  background:#fff;
-  border-radius:8px;
-  overflow:hidden;
-  position:relative;
-}
-
-.card img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-}
-
-.brand{
-  font-size:14px;
-  font-weight:600;
-  margin:8px 10px 0;
-}
-
-.title{
-  font-size:13px;
-  color:#555;
-  margin:2px 10px;
-}
-
-.rating{
-  font-size:12px;
-  margin:4px 10px;
-}
-
-.price{
-  font-size:15px;
-  font-weight:700;
-  margin:6px 10px 10px;
-}
-
-.price span{
-  color:#999;
-  font-size:12px;
-  text-decoration:line-through;
-  margin-left:6px;
-}
-
-.wishlist{
-  position:absolute;
-  top:8px;
-  right:8px;
-  background:#fff;
-  border-radius:50%;
-  padding:6px;
-  font-size:14px;
-}
-.card{
-  background:#fff;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.08);
-  padding:12px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.12);
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.title{
-  font-weight:600;
-  margin-top:10px;
-  font-size:16px;
-}
-
-.price{
-  font-size:18px;
-  font-weight:700;
-  margin-top:6px;
-}
-
-.price span{
-  color:#999;
-  font-size:14px;
-  text-decoration:line-through;
-  margin-left:6px;
-}
-
-.desc{
-  font-size:14px;
-  color:#555;
-  margin-top:6px;
-}
-.header{background:#0f172a;color:#fff;padding:18px}
-.header h1{margin:0;font-size:24px}
-.header p{margin:6px 0 0;font-size:13px;opacity:.9}
-
-.container{padding:14px}
-
-.card{
-background:#fff;
-border-radius:14px;
-padding:12px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-cursor:pointer
-}
-.card img{width:100%;border-radius:10px}
-
-.title{font-weight:600;margin:10px 0 4px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
+.card{background:#fff;border-radius:12px;overflow:hidden;cursor:pointer}
+.card img{width:100%;height:220px;object-fit:cover}
+.card .info{padding:10px}
 .price{font-weight:bold}
-.old{color:#888;font-size:13px;text-decoration:line-through;margin-left:6px}
-.desc{font-size:13px;color:#555}
+.old{text-decoration:line-through;color:#999;font-size:13px}
 
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-z-index:999;
-align-items:center;
-justify-content:center
-}
+.modal{display:none;position:fixed;inset:0;background:#000000cc;z-index:99}
+.modal-box{background:#fff;height:100%;overflow:auto}
+.slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+.slider img{width:100%;height:320px;object-fit:cover;scroll-snap-align:start}
 
-.modal-box{
-background:#fff;
-width:96%;
-max-width:440px;
-border-radius:16px;
-padding:14px;
-position:relative;
-max-height:92vh;
-overflow-y:auto
-}
+.section{padding:15px}
+.options span{display:inline-block;padding:8px 12px;border:1px solid #ccc;margin:5px;border-radius:20px;cursor:pointer}
+.options span.active{background:#111;color:#fff}
 
-.close{
-position:absolute;
-right:14px;
-top:8px;
-font-size:24px;
-cursor:pointer
-}
+input,textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:8px}
 
-/* IMAGE SLIDER */
-.slider{
-display:flex;
-overflow-x:auto;
-scroll-snap-type:x mandatory;
-gap:10px;
-}
-.slider img{
-min-width:100%;
-border-radius:12px;
-scroll-snap-align:center;
-}
+.btn{background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:10px;margin:15px;font-weight:bold}
 
-/* OPTIONS */
-.option-box span{
-display:inline-block;
-padding:8px 14px;
-margin:6px 6px 6px 0;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:14px;
-cursor:pointer
-}
-.option-box span.active{
-background:#0f172a;
-color:#fff;
-border-color:#0f172a
-}
-
-label{font-size:13px;font-weight:600}
-input,textarea{
-width:100%;
-padding:10px;
-margin:6px 0 12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:14px
-}
-textarea{resize:none}
-
-.btn{
-display:block;
-width:100%;
-padding:14px;
-border-radius:12px;
-border:none;
-font-weight:bold;
-background:#22c55e;
-color:#fff;
-font-size:16px;
-margin-top:12px
-}
-
-.footer{text-align:center;padding:18px;font-size:13px;color:#555}
+.close{position:fixed;top:10px;right:15px;font-size:22px;cursor:pointer}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-<h1>Urban Menswear</h1>
-<p>Premium Men Clothing • All India Delivery • WhatsApp Order</p>
+<h2>Urban Menswear</h2>
+<p>Premium Jeans & T-Shirts • All India Delivery</p>
 </div>
 
-<div class="container">
-<div class="card" onclick="openProduct()">
-<img src="images/jeans1_1.jpg">
-<div class="title">Men Slim Fit Jeans</div>
-<div class="price">₹799 <span class="old">₹1,999</span></div>
-<div class="desc">Premium stretch denim jeans</div>
-</div>
-</div>
-<!-- PRODUCT 2 -->
-<div class="card" onclick="openProduct()">
-  <img src="images/jeans2_1.jpg">
-  <div class="title">Men Regular Fit Jeans</div>
-  <div class="price">₹899 <span class="old">₹2,199</span></div>
-  <div class="desc">Comfort regular fit jeans</div>
+<div class="tabs">
+<button class="active" onclick="showCat('jeans')">Jeans</button>
+<button onclick="showCat('tshirt')">T-Shirts</button>
 </div>
 
-<!-- PRODUCT 3 -->
-<div class="card" onclick="openProduct()">
-  <img src="images/jeans3_1.jpg">
-  <div class="title">Men Stretch Denim Jeans</div>
-  <div class="price">₹749 <span class="old">₹1,899</span></div>
-  <div class="desc">Flexible stretch denim</div>
-</div>
+<div id="products" class="grid"></div>
 
-<!-- PRODUCT 4 -->
-<div class="card" onclick="openProduct()">
-  <img src="images/jeans4_1.jpg">
-  <div class="title">Men Casual Blue Jeans</div>
-  <div class="price">₹799 <span class="old">₹1,999</span></div>
-  <div class="desc">Everyday casual wear</div>
-</div>
-
-<!-- PRODUCT 5 -->
-<div class="card" onclick="openProduct()">
-  <img src="images/jeans5_1.jpg">
-  <div class="title">Men Dark Wash Jeans</div>
-  <div class="price">₹999 <span class="old">₹2,499</span></div>
-  <div class="desc">Premium dark wash finish</div>
-</div>
-
-<!-- PRODUCT 6 -->
-<div class="card" onclick="openProduct()">
-  <img src="images/jeans6_1.jpg">
-  <div class="title">Men Slim Casual Jeans</div>
-  <div class="price">₹699 <span class="old">₹1,799</span></div>
-  <div class="desc">Lightweight slim casual jeans</div>
-</div>
-<!-- MODAL -->
-<div id="modal" class="modal">
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal">
 <div class="modal-box">
-<span class="close" onclick="closeModal()">×</span>
+<span class="close" onclick="closeModal()">✕</span>
 
-<!-- IMAGE SCROLL -->
-<div class="slider">
-<img src="images/jeans1_1.jpg">
-<img src="images/jeans1_2.jpg">
-<img src="images/jeans1_3.jpg">
-<img src="images/jeans1_4.jpg">
-</div>
+<div class="slider" id="slider"></div>
 
-<h2>Men Slim Fit Jeans</h2>
-<p>₹799</p>
+<div class="section">
+<h3 id="pName"></h3>
+<p class="price" id="pPrice"></p>
 
-<label>Select Size</label>
-<div class="option-box" id="sizes">
-<span onclick="selectSize(this)">28</span>
-<span onclick="selectSize(this)">30</span>
-<span onclick="selectSize(this)">32</span>
-<span onclick="selectSize(this)">34</span>
-<span onclick="selectSize(this)">36</span>
-</div>
+<h4>Size</h4>
+<div class="options" id="sizes"></div>
 
-<label>Select Color</label>
-<div class="option-box" id="colors">
-<span onclick="selectColor(this)">Blue</span>
-<span onclick="selectColor(this)">Black</span>
-<span onclick="selectColor(this)">Grey</span>
-</div>
+<h4>Color</h4>
+<div class="options" id="colors"></div>
 
-<label>Quantity</label>
-<input id="qty" type="number" value="1" min="1">
+<h4>Your Details</h4>
+<input id="cName" placeholder="Your Name">
+<input id="cPhone" placeholder="Mobile Number">
+<textarea id="cAddr" placeholder="Full Address"></textarea>
 
-<hr>
-
-<label>Your Full Name</label>
-<input id="name">
-
-<label>Mobile Number</label>
-<input id="phone">
-
-<label>Full Delivery Address</label>
-<textarea id="address" rows="4"></textarea>
-
-<button class="btn" onclick="sendOrder()">BUY NOW</button>
+<div class="btn" onclick="orderNow()">Buy on WhatsApp</div>
 </div>
 </div>
-
-<div class="footer">
-© 2026 Urban Menswear • All Rights Reserved
 </div>
 
 <script>
-let size="", color="";
+const phone="919318415910";
 
-function openProduct(){
-document.getElementById("modal").style.display="flex";
+const data={
+jeans:[
+{name:"Men Slim Fit Jeans",price:"₹799",old:"₹1999",imgs:["jeans1_1","jeans1_2","jeans1_3","jeans1_4"]},
+{name:"Men Regular Fit Jeans",price:"₹899",old:"₹2199",imgs:["jeans2_1","jeans2_2","jeans2_3","jeans2_4"]},
+{name:"Men Stretch Jeans",price:"₹749",old:"₹1899",imgs:["jeans3_1","jeans3_2","jeans3_3","jeans3_4"]},
+{name:"Men Casual Blue Jeans",price:"₹799",old:"₹1999",imgs:["jeans4_1","jeans4_2","jeans4_3","jeans4_4"]},
+{name:"Men Dark Wash Jeans",price:"₹999",old:"₹2499",imgs:["jeans5_1","jeans5_2","jeans5_3","jeans5_4"]},
+{name:"Men Slim Casual Jeans",price:"₹699",old:"₹1799",imgs:["jeans6_1","jeans6_2","jeans6_3","jeans6_4"]}
+],
+tshirt:[
+{name:"Men Black T-Shirt",price:"₹499",old:"₹999",imgs:["t1_1","t1_2","t1_3","t1_4"]},
+{name:"Men White T-Shirt",price:"₹449",old:"₹899",imgs:["t2_1","t2_2","t2_3","t2_4"]},
+{name:"Men Printed T-Shirt",price:"₹599",old:"₹1199",imgs:["t3_1","t3_2","t3_3","t3_4"]},
+{name:"Men Oversize Tee",price:"₹649",old:"₹1299",imgs:["t4_1","t4_2","t4_3","t4_4"]},
+{name:"Men Polo T-Shirt",price:"₹699",old:"₹1499",imgs:["t5_1","t5_2","t5_3","t5_4"]},
+{name:"Men Sports T-Shirt",price:"₹549",old:"₹1099",imgs:["t6_1","t6_2","t6_3","t6_4"]}
+]
+};
+
+let current;
+
+function showCat(cat){
+document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+event.target.classList.add("active");
+render(cat);
 }
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
+function render(cat){
+const box=document.getElementById("products");
+box.innerHTML="";
+data[cat].forEach(p=>{
+box.innerHTML+=`
+<div class="card" onclick='openProd(${JSON.stringify(p)})'>
+<img src="images/${p.imgs[0]}.jpg">
+<div class="info">
+<b>${p.name}</b><br>
+<span class="price">${p.price}</span> <span class="old">${p.old}</span>
+</div></div>`;
+});
 }
 
-function selectSize(el){
-document.querySelectorAll("#sizes span").forEach(s=>s.classList.remove("active"));
+function openProd(p){
+current=p;
+document.getElementById("modal").style.display="block";
+document.getElementById("pName").innerText=p.name;
+document.getElementById("pPrice").innerText=p.price;
+
+slider.innerHTML="";
+p.imgs.forEach(i=>slider.innerHTML+=`<img src="images/${i}.jpg">`);
+
+sizes.innerHTML="";
+["S","M","L","XL","28","30","32","34","36"].forEach(s=>{
+sizes.innerHTML+=`<span onclick="sel(this)">${s}</span>`;
+});
+
+colors.innerHTML="";
+["Blue","Black","Grey"].forEach(c=>{
+colors.innerHTML+=`<span onclick="sel(this)">${c}</span>`;
+});
+}
+
+function sel(el){
+el.parentNode.querySelectorAll("span").forEach(s=>s.classList.remove("active"));
 el.classList.add("active");
-size=el.innerText;
 }
 
-function selectColor(el){
-document.querySelectorAll("#colors span").forEach(s=>s.classList.remove("active"));
-el.classList.add("active");
-color=el.innerText;
+function orderNow(){
+const size=document.querySelector("#sizes .active")?.innerText||"";
+const color=document.querySelector("#colors .active")?.innerText||"";
+const msg=encodeURIComponent(
+`Product: ${current.name}
+Price: ${current.price}
+Size: ${size}
+Color: ${color}
+
+Name: ${cName.value}
+Phone: ${cPhone.value}
+Address: ${cAddr.value}`
+);
+window.open(`https://wa.me/${phone}?text=${msg}`);
 }
 
-function sendOrder(){
-if(!size || !color || !name.value || !phone.value || !address.value){
-alert("Please fill all details");
-return;
-}
+function closeModal(){modal.style.display="none"}
 
-let msg=
-"Hello Urban Menswear 👋\n\n"+
-"🧾 Product: Men Slim Fit Jeans\n"+
-"💰 Price: ₹799\n"+
-"📏 Size: "+size+"\n"+
-"🎨 Color: "+color+"\n"+
-"🔢 Quantity: "+qty.value+"\n\n"+
-"👤 Name: "+name.value+"\n"+
-"📞 Phone: "+phone.value+"\n"+
-"🏠 Address: "+address.value+"\n\n"+
-"📸 Image: "+location.origin+"/images/jeans1_1.jpg\n\n"+
-"Please confirm stock.";
-
-window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
-}
+render("jeans");
 </script>
 
 </body>
