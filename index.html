@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Urban Menswear – Premium Men Store</title>
 
-<meta name="description" content="Premium Men Jeans Store. All India Delivery. Order directly on WhatsApp.">
+<meta name="description" content="Premium Men Jeans Store. All India Delivery. Order on WhatsApp.">
 <meta property="og:title" content="Urban Menswear – Premium Men Store">
-<meta property="og:description" content="Trusted Men Clothing Store • All India Delivery">
+<meta property="og:description" content="Trusted Online Menswear Store">
 <meta property="og:image" content="images/jeans1.jpg">
 
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui;background:#f3f4f6;color:#111}
+
 .header{background:#0f172a;color:#fff;padding:18px}
 .header h1{margin:0;font-size:24px}
 .header p{margin:6px 0 0;font-size:13px;opacity:.9}
@@ -29,15 +30,66 @@ body{margin:0;font-family:system-ui;background:#f3f4f6;color:#111}
 
 .section{background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.08);margin-bottom:14px}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;z-index:999}
-.modal-box{background:#fff;width:94%;max-width:420px;border-radius:16px;padding:16px;position:relative}
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+align-items:center;
+justify-content:center;
+z-index:999
+}
+.modal-box{
+background:#fff;
+width:96%;
+max-width:440px;
+border-radius:16px;
+padding:16px;
+position:relative;
+max-height:90vh;
+overflow-y:auto;
+}
 .close{position:absolute;right:14px;top:8px;font-size:24px;cursor:pointer}
 .modal-img{width:100%;border-radius:12px}
 
 label{font-size:13px;font-weight:600}
-input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;border-radius:8px;border:1px solid #ccc}
+input,textarea{
+width:100%;
+padding:10px;
+margin:6px 0 12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px
+}
+textarea{resize:none}
 
-.btn{display:block;width:100%;padding:14px;border-radius:12px;border:none;font-weight:bold;background:#22c55e;color:#fff;font-size:16px}
+.size-box span{
+display:inline-block;
+padding:8px 14px;
+margin:6px 6px 6px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+cursor:pointer
+}
+.size-box span.active{
+background:#0f172a;
+color:#fff;
+border-color:#0f172a
+}
+
+.btn{
+display:block;
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+font-weight:bold;
+background:#22c55e;
+color:#fff;
+font-size:16px;
+margin-top:12px
+}
 
 .footer{text-align:center;padding:18px;font-size:13px;color:#555}
 </style>
@@ -91,27 +143,28 @@ input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;border-radius:8p
 <h2 id="pName"></h2>
 <p id="pPrice"></p>
 
-<label>Size</label>
-<select id="size">
-<option>28</option><option>30</option><option>32</option><option>34</option><option>36</option>
-</select>
-
-<label>Color</label>
-<select id="color">
-<option>Blue</option><option>Black</option><option>Grey</option>
-</select>
+<label>Select Size</label>
+<div class="size-box" id="sizes">
+<span onclick="selectSize(this)">28</span>
+<span onclick="selectSize(this)">30</span>
+<span onclick="selectSize(this)">32</span>
+<span onclick="selectSize(this)">34</span>
+<span onclick="selectSize(this)">36</span>
+</div>
 
 <label>Quantity</label>
-<input id="qty" type="number" value="1">
+<input id="qty" type="number" value="1" min="1">
 
-<label>Your Name</label>
-<input id="name">
+<hr>
+
+<label>Your Full Name</label>
+<input id="custName" placeholder="Enter your full name">
 
 <label>Mobile Number</label>
-<input id="phone">
+<input id="custPhone" placeholder="Enter mobile number">
 
-<label>Delivery Address</label>
-<textarea id="address"></textarea>
+<label>Full Delivery Address</label>
+<textarea id="custAddress" rows="4" placeholder="House no, street, area, city, state, pincode"></textarea>
 
 <button class="btn" onclick="sendOrder()">BUY NOW</button>
 </div>
@@ -122,10 +175,10 @@ input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;border-radius:8p
 </div>
 
 <script>
-let currentProduct={};
+let product={}, selectedSize="";
 
 function openProduct(name,price,img){
-currentProduct={name,price,img};
+product={name,price,img};
 document.getElementById("pName").innerText=name;
 document.getElementById("pPrice").innerText=price;
 document.getElementById("pImg").src=img;
@@ -136,19 +189,26 @@ function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
+function selectSize(el){
+document.querySelectorAll(".size-box span").forEach(s=>s.classList.remove("active"));
+el.classList.add("active");
+selectedSize=el.innerText;
+}
+
 function sendOrder(){
+if(!selectedSize){alert("Please select size");return;}
+
 let msg=
 "Hello Urban Menswear 👋\n\n"+
-"🧾 Product: "+currentProduct.name+"\n"+
-"💰 Price: "+currentProduct.price+"\n"+
-"📏 Size: "+size.value+"\n"+
-"🎨 Color: "+color.value+"\n"+
+"🧾 Product: "+product.name+"\n"+
+"💰 Price: "+product.price+"\n"+
+"📏 Size: "+selectedSize+"\n"+
 "🔢 Quantity: "+qty.value+"\n\n"+
-"👤 Name: "+name.value+"\n"+
-"📞 Phone: "+phone.value+"\n"+
-"🏠 Address: "+address.value+"\n\n"+
-"📸 Image: "+location.href.replace('index.html','')+currentProduct.img+"\n\n"+
-"Please confirm stock.";
+"👤 Name: "+custName.value+"\n"+
+"📞 Phone: "+custPhone.value+"\n"+
+"🏠 Address: "+custAddress.value+"\n\n"+
+"📸 Image: "+location.href.replace('index.html','')+product.img+"\n\n"+
+"Please confirm stock availability.";
 
 window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
 }
