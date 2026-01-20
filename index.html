@@ -6,131 +6,227 @@
 <title>Urban Jeans Store</title>
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f5f5f5;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+  background:#f1f3f6;
+  color:#111;
 }
-header{
-  background:#000;
+.header{
+  background:#131921;
   color:#fff;
-  padding:15px;
-  text-align:center;
+  padding:14px;
 }
-.products{
+.header h2{margin:0}
+.header p{margin:4px 0 0;font-size:13px;color:#ccc}
+
+.search{background:#fff;padding:10px}
+.search input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+.categories{
+  display:flex;
+  overflow-x:auto;
+  background:#fff;
+  padding:10px;
+}
+.categories span{
+  background:#eee;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  margin-right:8px;
+  white-space:nowrap;
+}
+
+.container{padding:14px}
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-  padding:15px;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
 }
+
 .card{
   background:#fff;
-  border-radius:8px;
+  border-radius:14px;
   padding:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 .card img{
   width:100%;
+  border-radius:12px;
+}
+.title{font-size:14px;font-weight:600;margin:8px 0 4px}
+.rating{font-size:12px;color:#f3a847}
+.price{font-size:16px;font-weight:700}
+.old{font-size:12px;color:#888;text-decoration:line-through;margin-left:6px}
+
+.sizes span{
+  display:inline-block;
+  border:1px solid #ccc;
+  padding:4px 8px;
+  font-size:11px;
   border-radius:6px;
+  margin:4px 4px 0 0;
 }
-.title{
-  font-size:15px;
-  margin:8px 0;
-  font-weight:bold;
-}
-.price{
-  font-weight:bold;
-  font-size:16px;
-}
-.old{
-  text-decoration:line-through;
-  color:#888;
-  font-size:13px;
-  margin-left:6px;
-}
-.size{
-  font-size:13px;
-  margin-top:5px;
-  color:#333;
-}
+
+.features{font-size:12px;color:#444;margin-top:6px;line-height:1.4}
+.trust{display:flex;justify-content:space-between;font-size:11px;color:#555;margin-top:6px}
+
 .btn{
-  display:block;
-  background:#000;
-  color:#fff;
-  text-align:center;
-  padding:10px;
-  text-decoration:none;
   margin-top:10px;
-  font-size:14px;
-}
-footer{
-  background:#000;
+  display:block;
+  background:#111;
   color:#fff;
   text-align:center;
-  padding:10px;
+  padding:11px;
+  border-radius:10px;
+  font-size:14px;
+  text-decoration:none;
+}
+
+/* EXTRA SECTIONS */
+.section{
+  background:#fff;
+  margin:14px;
+  padding:14px;
+  border-radius:14px;
+  box-shadow:0 3px 10px rgba(0,0,0,.06);
+}
+.section h3{margin-top:0;font-size:16px}
+
+.review{
   font-size:13px;
+  border-bottom:1px solid #eee;
+  padding:8px 0;
+}
+.review:last-child{border:none}
+
+.video video{
+  width:100%;
+  border-radius:12px;
+}
+
+.pincode input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+.pincode button{
+  margin-top:8px;
+  width:100%;
+  padding:10px;
+  background:#111;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+}
+
+.sticky{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:#0a0a0a;
+  padding:12px;
+}
+.sticky a{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-align:center;
+  padding:14px;
+  border-radius:10px;
+  font-size:16px;
+  text-decoration:none;
+}
+
+.footer{
+  background:#131921;
+  color:#bbb;
+  text-align:center;
+  padding:14px;
+  font-size:12px;
+  margin-bottom:90px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h2>Urban Jeans Store</h2>
-  <p>Premium Jeans | All Under ₹2000 | COD Available</p>
-</header>
-
-<div class="products">
-
-  <!-- PRODUCT 1 -->
-  <div class="card">
-    <img src="jeans1.jpg">
-    <div class="title">Men Slim Fit Jeans</div>
-    <div class="price">₹799 <span class="old">₹1,999</span></div>
-    <div class="size">Sizes: 28 | 30 | 32 | 34 | 36</div>
-    <a class="btn" href="https://wa.me/919318415910?text=Order%20Men%20Slim%20Fit%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
-  </div>
-
-  <!-- PRODUCT 2 -->
-  <div class="card">
-    <img src="jeans2.jpg">
-    <div class="title">Men Regular Fit Jeans</div>
-    <div class="price">₹899 <span class="old">₹2,199</span></div>
-    <div class="size">Sizes: 28 | 30 | 32 | 34 | 36</div>
-    <a class="btn" href="https://wa.me/919318415910?text=Order%20Men%20Regular%20Fit%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
-  </div>
-
-  <!-- PRODUCT 3 -->
-  <div class="card">
-    <img src="jeans3.jpg">
-    <div class="title">Women High Rise Jeans</div>
-    <div class="price">₹999 <span class="old">₹2,499</span></div>
-    <div class="size">Sizes: 28 | 30 | 32 | 34 | 36</div>
-    <a class="btn" href="https://wa.me/919318415910?text=Order%20Women%20High%20Rise%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
-  </div>
-
-  <!-- PRODUCT 4 -->
-  <div class="card">
-    <img src="jeans4.jpg">
-    <div class="title">Wide Leg Jeans</div>
-    <div class="price">₹1,099 <span class="old">₹2,799</span></div>
-    <div class="size">Sizes: 28 | 30 | 32 | 34 | 36</div>
-    <a class="btn" href="https://wa.me/919318415910?text=Order%20Wide%20Leg%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
-  </div>
-
-  <!-- PRODUCT 5 -->
-  <div class="card">
-    <img src="jeans5.jpg">
-    <div class="title">Stretch Denim Jeans</div>
-    <div class="price">₹1,199 <span class="old">₹2,999</span></div>
-    <div class="size">Sizes: 28 | 30 | 32 | 34 | 36</div>
-    <a class="btn" href="https://wa.me/919318415910?text=Order%20Stretch%20Denim%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
-  </div>
-
+<div class="header">
+<h2>Urban Jeans Store</h2>
+<p>Premium Jeans • All Under ₹1000 • COD Available</p>
 </div>
 
-<footer>
-  © 2026 Urban Jeans Store | WhatsApp Orders: 9318415910
-</footer>
+<div class="search">
+<input type="text" placeholder="Search for jeans...">
+</div>
+
+<div class="categories">
+<span>Men</span><span>Women</span><span>Slim Fit</span><span>Regular</span><span>Wide Leg</span>
+</div>
+
+<div class="container">
+<div class="grid">
+
+<div class="card">
+<img src="jeans1.jpg">
+<div class="title">Men Slim Fit Jeans</div>
+<div class="rating">⭐⭐⭐⭐☆ (4.5)</div>
+<div class="price">₹799 <span class="old">₹1,999</span></div>
+<div class="sizes"><span>28</span><span>30</span><span>32</span><span>34</span><span>36</span></div>
+<div class="features">
+✔ Premium Denim<br>✔ Stretch Fabric<br>✔ Daily Comfort
+</div>
+<div class="trust"><span>🚚 All India</span><span>↩ Easy Return</span></div>
+<a class="btn" href="https://wa.me/919318415910?text=Order%20Men%20Slim%20Fit%20Jeans%0ASize:%20%0AName:%20%0AAddress:%20">Order on WhatsApp</a>
+</div>
+
+</div>
+</div>
+
+<!-- VIDEO -->
+<div class="section video">
+<h3>Product Video</h3>
+<video controls>
+<source src="product-video.mp4" type="video/mp4">
+</video>
+</div>
+
+<!-- PINCODE -->
+<div class="section pincode">
+<h3>Check Delivery Availability</h3>
+<input type="number" placeholder="Enter Pincode">
+<button onclick="alert('Delivery available in your area')">Check</button>
+</div>
+
+<!-- REVIEWS -->
+<div class="section">
+<h3>Customer Reviews</h3>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Great quality jeans, perfect fitting!</div>
+<div class="review">⭐️⭐️⭐️⭐️ Worth the price, very comfortable.</div>
+<div class="review">⭐️⭐️⭐️⭐️⭐️ Fast delivery & premium look.</div>
+</div>
+
+<!-- TRACKING -->
+<div class="section">
+<h3>Track Your Order</h3>
+<p>To track your order, message us on WhatsApp with your order details.</p>
+<a class="btn" href="https://wa.me/919318415910">Track on WhatsApp</a>
+</div>
+
+<div class="sticky">
+<a href="https://wa.me/919318415910">Chat on WhatsApp & Order Now</a>
+</div>
+
+<div class="footer">
+© 2026 Urban Jeans Store • Privacy • Returns • Support
+</div>
 
 </body>
 </html>
