@@ -3,120 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Urban Menswear – Premium Men Store</title>
 
-<meta name="description" content="Premium Men Jeans Store. All India Delivery. Order on WhatsApp.">
+<title>Urban Menswear – Trusted Online Men Store</title>
+
+<meta name="description" content="Premium Men Clothing Store. Order easily via WhatsApp. All India Delivery.">
 <meta property="og:title" content="Urban Menswear – Premium Men Store">
-<meta property="og:description" content="Trusted Online Menswear Store">
+<meta property="og:description" content="Trusted Online Menswear Store • All India Delivery">
 <meta property="og:image" content="images/jeans1.jpg">
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui;background:#f3f4f6;color:#111}
+body{
+  margin:0;
+  font-family:system-ui;
+  background:#f4f6f8;
+  color:#111;
+  overflow:auto;
+}
 
-.header{background:#0f172a;color:#fff;padding:18px}
+.header{
+  background:#0f172a;
+  color:#fff;
+  padding:18px;
+}
 .header h1{margin:0;font-size:24px}
 .header p{margin:6px 0 0;font-size:13px;opacity:.9}
 
 .container{padding:14px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 
-.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 10px 25px rgba(0,0,0,.08);cursor:pointer}
-.card img{width:100%;border-radius:10px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  cursor:pointer;
+}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
 .title{font-weight:600;margin:8px 0 4px}
 .price{font-weight:bold}
-.old{text-decoration:line-through;color:#888;font-size:13px;margin-left:6px}
+.old{
+  text-decoration:line-through;
+  color:#888;
+  font-size:13px;
+  margin-left:6px;
+}
 .desc{font-size:13px;color:#555}
 
-.section{background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.08);margin-bottom:14px}
+.section{
+  background:#fff;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin-bottom:14px;
+}
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-align-items:center;
-justify-content:center;
-z-index:999
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
 }
-.modal-box{
-background:#fff;
-width:96%;
-max-width:440px;
-border-radius:16px;
-padding:16px;
-position:relative;
-max-height:90vh;
-overflow-y:auto;
-}
-.close{position:absolute;right:14px;top:8px;font-size:24px;cursor:pointer}
-.modal-img{width:100%;border-radius:12px}
 
-label{font-size:13px;font-weight:600}
-input,textarea{
-width:100%;
-padding:10px;
-margin:6px 0 12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:14px
+.modal-box{
+  background:#fff;
+  width:96%;
+  max-width:440px;
+  border-radius:16px;
+  padding:16px;
+  position:relative;
+
+  max-height:90vh;       /* ✅ scroll FIX */
+  overflow-y:auto;       /* ✅ scroll FIX */
 }
+
+.close{
+  position:absolute;
+  right:14px;
+  top:8px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.modal-img{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+
+label{
+  font-size:13px;
+  font-weight:600;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:6px 0 12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
 textarea{resize:none}
 
 .size-box span{
-display:inline-block;
-padding:8px 14px;
-margin:6px 6px 6px 0;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:14px;
-cursor:pointer
+  display:inline-block;
+  padding:8px 14px;
+  margin:6px 6px 6px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+  cursor:pointer;
 }
+
 .size-box span.active{
-background:#0f172a;
-color:#fff;
-border-color:#0f172a
+  background:#0f172a;
+  color:#fff;
+  border-color:#0f172a;
 }
 
 .btn{
-display:block;
-width:100%;
-padding:14px;
-border-radius:12px;
-border:none;
-font-weight:bold;
-background:#22c55e;
-color:#fff;
-font-size:16px;
-margin-top:12px
+  display:block;
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  font-weight:bold;
+  background:#22c55e;
+  color:#fff;
+  font-size:16px;
+  margin-top:12px;
 }
 
-.footer{text-align:center;padding:18px;font-size:13px;color:#555}
+.footer{
+  text-align:center;
+  padding:18px;
+  font-size:13px;
+  color:#555;
+}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-<h1>Urban Menswear</h1>
-<p>Premium Men Clothing • All India Delivery • WhatsApp Order</p>
+  <h1>Urban Menswear</h1>
+  <p>Premium Men Clothing • All India Delivery • WhatsApp Order</p>
 </div>
 
 <div class="container">
 <div class="grid">
 
 <div class="card" onclick="openProduct('Men Slim Fit Jeans','₹799','images/jeans1.jpg')">
-<img src="images/jeans1.jpg">
-<div class="title">Men Slim Fit Jeans</div>
-<div class="price">₹799 <span class="old">₹1,999</span></div>
-<div class="desc">Premium daily wear jeans</div>
+  <img src="images/jeans1.jpg">
+  <div class="title">Men Slim Fit Jeans</div>
+  <div class="price">₹799 <span class="old">₹1,999</span></div>
+  <div class="desc">Premium daily wear jeans</div>
 </div>
 
 <div class="card" onclick="openProduct('Men Regular Fit Jeans','₹849','images/jeans2.jpg')">
-<img src="images/jeans2.jpg">
-<div class="title">Men Regular Fit Jeans</div>
-<div class="price">₹849 <span class="old">₹2,199</span></div>
-<div class="desc">Comfort fit jeans</div>
+  <img src="images/jeans2.jpg">
+  <div class="title">Men Regular Fit Jeans</div>
+  <div class="price">₹849 <span class="old">₹2,199</span></div>
+  <div class="desc">Comfort fit jeans</div>
 </div>
 
 </div>
@@ -124,7 +185,7 @@ margin-top:12px
 
 <div class="container">
 <div class="section">
-<h3>Why Choose Us</h3>
+<h3>Why Shop With Us</h3>
 <p class="desc">
 ✔ Trusted WhatsApp Store<br>
 ✔ Quality Checked Products<br>
@@ -134,7 +195,7 @@ margin-top:12px
 </div>
 </div>
 
-<!-- MODAL -->
+<!-- PRODUCT ORDER MODAL -->
 <div id="modal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeModal()">×</span>
@@ -144,12 +205,12 @@ margin-top:12px
 <p id="pPrice"></p>
 
 <label>Select Size</label>
-<div class="size-box" id="sizes">
-<span onclick="selectSize(this)">28</span>
-<span onclick="selectSize(this)">30</span>
-<span onclick="selectSize(this)">32</span>
-<span onclick="selectSize(this)">34</span>
-<span onclick="selectSize(this)">36</span>
+<div class="size-box">
+  <span onclick="selectSize(this)">28</span>
+  <span onclick="selectSize(this)">30</span>
+  <span onclick="selectSize(this)">32</span>
+  <span onclick="selectSize(this)">34</span>
+  <span onclick="selectSize(this)">36</span>
 </div>
 
 <label>Quantity</label>
@@ -177,28 +238,31 @@ margin-top:12px
 <script>
 let product={}, selectedSize="";
 
-function openProduct(name,price,img){
-product={name,price,img};
-document.getElementById("pName").innerText=name;
-document.getElementById("pPrice").innerText=price;
-document.getElementById("pImg").src=img;
-document.getElementById("modal").style.display="flex";
+function openProduct(name, price, img){
+  product={name, price, img};
+  document.getElementById("pName").innerText=name;
+  document.getElementById("pPrice").innerText=price;
+  document.getElementById("pImg").src=img;
+  document.getElementById("modal").style.display="flex";
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+  document.getElementById("modal").style.display="none";
 }
 
 function selectSize(el){
-document.querySelectorAll(".size-box span").forEach(s=>s.classList.remove("active"));
-el.classList.add("active");
-selectedSize=el.innerText;
+  document.querySelectorAll(".size-box span").forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+  selectedSize=el.innerText;
 }
 
 function sendOrder(){
-if(!selectedSize){alert("Please select size");return;}
+  if(!selectedSize || !custName.value || !custPhone.value || !custAddress.value){
+    alert("Please fill all details");
+    return;
+  }
 
-let msg=
+  let msg =
 "Hello Urban Menswear 👋\n\n"+
 "🧾 Product: "+product.name+"\n"+
 "💰 Price: "+product.price+"\n"+
@@ -207,10 +271,10 @@ let msg=
 "👤 Name: "+custName.value+"\n"+
 "📞 Phone: "+custPhone.value+"\n"+
 "🏠 Address: "+custAddress.value+"\n\n"+
-"📸 Image: "+location.href.replace('index.html','')+product.img+"\n\n"+
-"Please confirm stock availability.";
+"📸 Image: "+location.origin+"/"+product.img+"\n\n"+
+"Please confirm stock.";
 
-window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
+  window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
 }
 </script>
 
