@@ -7,153 +7,53 @@
 <title>Urban Jeans Store – Premium Jeans Under ₹1000</title>
 
 <!-- SEO -->
-<meta name="description" content="Buy premium men & women jeans under ₹1000. All India delivery. Order directly on WhatsApp.">
-<meta name="keywords" content="jeans under 1000, men jeans, women jeans, slim fit jeans, buy jeans online India">
+<meta name="description" content="Premium jeans under ₹1000. All India delivery. Order via WhatsApp. UPI & COD available.">
+<meta name="keywords" content="jeans under 1000, men jeans india, women jeans, slim fit jeans">
 
 <!-- WhatsApp / Social Preview -->
-<meta property="og:title" content="Urban Jeans Store – Premium Jeans">
-<meta property="og:description" content="Premium Jeans • All India Delivery • Under ₹1000 • COD Available">
+<meta property="og:title" content="Urban Jeans Store – Premium Jeans Under ₹1000">
+<meta property="og:description" content="Premium Jeans • All India Delivery • COD & UPI Available">
 <meta property="og:image" content="https://davk4392-sketch.github.io/urban-jeans-store/images/jeans1.jpg">
-<meta property="og:url" content="https://davk4392-sketch.github.io/urban-jeans-store">
+<meta property="og:url" content="https://davk4392-sketch.github.io/urban-jeans-store/">
 <meta property="og:type" content="website">
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-  background:#f4f6f8;
-  color:#111;
-}
-.header{
-  background:#131921;
-  color:#fff;
-  padding:16px;
-}
+body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
+.header{background:#111827;color:#fff;padding:16px}
 .header h1{margin:0;font-size:22px}
-.header p{margin:6px 0 0;font-size:13px;color:#ddd}
+.header p{margin:6px 0 0;font-size:13px;opacity:.9}
 
-.search{
-  padding:12px;
-}
-.search input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
+.search{padding:12px}
+.search input{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd}
 
-.categories{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:0 12px 12px;
-}
-.categories span{
-  background:#eee;
-  padding:8px 14px;
-  border-radius:20px;
-  font-size:13px;
-  white-space:nowrap;
-}
+.categories{display:flex;gap:8px;overflow-x:auto;padding:0 12px 12px}
+.categories span{background:#e5e7eb;padding:8px 14px;border-radius:20px;font-size:13px}
 
 .container{padding:12px}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 
-.card{
-  background:#fff;
-  border-radius:14px;
-  padding:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,.06);
-  cursor:pointer;
-}
-.card img{
-  width:100%;
-  border-radius:12px;
-}
-.title{
-  font-weight:600;
-  margin-top:8px;
-}
-.rating{
-  color:#f5a623;
-  font-size:13px;
-}
-.price{
-  font-size:18px;
-  font-weight:700;
-}
-.old{
-  text-decoration:line-through;
-  color:#888;
-  font-size:13px;
-  margin-left:6px;
-}
-.sizes span{
-  display:inline-block;
-  border:1px solid #ccc;
-  border-radius:6px;
-  padding:4px 7px;
-  margin:4px 4px 0 0;
-  font-size:12px;
-}
-.features{
-  font-size:12px;
-  color:#555;
-  margin-top:6px;
-}
+.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 6px 16px rgba(0,0,0,.08);cursor:pointer}
+.card img{width:100%;border-radius:10px}
+.title{font-weight:600;margin:8px 0 4px;font-size:14px}
+.rating{font-size:13px;color:#f59e0b}
+.price{font-weight:bold}
+.old{text-decoration:line-through;color:#888;font-size:13px;margin-left:6px}
+.desc{font-size:13px;color:#555;line-height:1.4}
 
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-.modal-box{
-  background:#fff;
-  width:90%;
-  max-width:380px;
-  border-radius:14px;
-  padding:16px;
-  position:relative;
-}
-.close{
-  position:absolute;
-  right:12px;
-  top:8px;
-  font-size:22px;
-  cursor:pointer;
-}
-.modal-img{
-  width:100%;
-  border-radius:12px;
-}
-.btn{
-  display:block;
-  background:#25D366;
-  color:#fff;
-  text-align:center;
-  padding:12px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:600;
-  margin-top:12px;
-}
+.section{background:#fff;padding:14px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.08);margin-bottom:12px}
 
-.footer{
-  text-align:center;
-  font-size:12px;
-  color:#666;
-  padding:16px;
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center}
+.modal-box{background:#fff;width:92%;max-width:420px;border-radius:14px;padding:14px;position:relative}
+.close{position:absolute;right:12px;top:6px;font-size:22px;cursor:pointer}
+.modal-img{width:100%;border-radius:10px}
+
+.btn{display:block;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.wa{background:#22c55e;color:#fff}
+.upi{background:#2563eb;color:#fff}
+.cod{background:#111;color:#fff}
+
+.footer{text-align:center;padding:16px;font-size:13px;color:#555}
 </style>
 </head>
 
@@ -161,99 +61,133 @@ body{
 
 <div class="header">
   <h1>Urban Jeans Store</h1>
-  <p>Premium Jeans • All India Delivery • Under ₹1000 • COD Available</p>
+  <p>Premium Jeans • All India Delivery • Under ₹1000 • COD / UPI</p>
 </div>
 
 <div class="search">
-  <input type="text" placeholder="Search for jeans…">
+  <input placeholder="Search for jeans...">
 </div>
 
 <div class="categories">
-  <span>Men</span>
-  <span>Women</span>
-  <span>Slim Fit</span>
-  <span>Regular</span>
-  <span>Wide Leg</span>
+  <span>Men</span><span>Women</span><span>Slim Fit</span><span>Regular</span>
 </div>
 
 <div class="container">
 <div class="grid">
 
-<!-- PRODUCT 1 -->
-<div class="card" onclick="openProduct('Men Slim Fit Jeans','₹799','images/jeans1.jpg','Premium stretch denim, soft fabric, daily wear')">
+<div class="card" onclick="openProduct(
+'Men Slim Fit Jeans',
+'₹799',
+'images/jeans1.jpg',
+'Premium stretch denim • Daily wear • Long lasting'
+)">
 <img src="images/jeans1.jpg">
 <div class="title">Men Slim Fit Jeans</div>
-<div class="rating">⭐⭐⭐⭐☆ (4.5)</div>
+<div class="rating">★★★★★ (4.5)</div>
 <div class="price">₹799 <span class="old">₹1,999</span></div>
+<div class="desc">Premium daily wear jeans</div>
 </div>
 
-<!-- PRODUCT 2 -->
-<div class="card" onclick="openProduct('Men Regular Fit Jeans','₹849','images/jeans2.jpg','Strong stitching, comfort fit, long lasting')">
+<div class="card" onclick="openProduct(
+'Men Regular Fit Jeans',
+'₹849',
+'images/jeans2.jpg',
+'Comfort fit • Strong stitching'
+)">
 <img src="images/jeans2.jpg">
 <div class="title">Men Regular Fit Jeans</div>
-<div class="rating">⭐⭐⭐⭐☆ (4.4)</div>
+<div class="rating">★★★★☆ (4.4)</div>
 <div class="price">₹849 <span class="old">₹2,199</span></div>
+<div class="desc">Comfort regular fit jeans</div>
 </div>
 
-<!-- PRODUCT 3 -->
-<div class="card" onclick="openProduct('Women High Rise Jeans','₹899','images/jeans3.jpg','Trendy look, premium fabric')">
-<img src="images/jeans3.jpg">
-<div class="title">Women High Rise Jeans</div>
-<div class="rating">⭐⭐⭐⭐⭐ (4.6)</div>
-<div class="price">₹899 <span class="old">₹2,499</span></div>
+</div>
 </div>
 
-<!-- PRODUCT 4 -->
-<div class="card" onclick="openProduct('Wide Leg Jeans','₹949','images/jeans4.jpg','Fashion fit, soft denim')">
-<img src="images/jeans4.jpg">
-<div class="title">Wide Leg Jeans</div>
-<div class="rating">⭐⭐⭐⭐☆ (4.3)</div>
-<div class="price">₹949 <span class="old">₹2,799</span></div>
+<div class="container">
+  <div class="section">
+    <h3>Why Shop With Us?</h3>
+    <p class="desc">
+      ✔ Trusted WhatsApp Store<br>
+      ✔ Premium Quality Checked<br>
+      ✔ Cash on Delivery Available<br>
+      ✔ All India Delivery<br>
+      ✔ Direct Seller Support
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Delivery & Return</h3>
+    <p class="desc">
+      🚚 Delivery: 4–7 working days (All India)<br>
+      💵 Payment: UPI / WhatsApp / COD<br>
+      🔁 Return: Contact within 48 hours of delivery
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>FAQs</h3>
+    <p class="desc">
+      <b>How to order?</b><br>
+      Click product → WhatsApp → Confirm<br><br>
+      <b>Payment methods?</b><br>
+      UPI & Cash on Delivery<br><br>
+      <b>Order updates?</b><br>
+      Directly on WhatsApp
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Contact</h3>
+    <p class="desc">
+      📞 WhatsApp: +91 93184 15910<br>
+      🕘 10 AM – 7 PM<br>
+      🇮🇳 All India Service
+    </p>
+  </div>
 </div>
 
+<!-- PRODUCT DETAIL MODAL -->
+<div id="modal" class="modal">
+<div class="modal-box">
+<span class="close" onclick="closeModal()">×</span>
+<img id="mImg" class="modal-img">
+<h2 id="mName"></h2>
+<p id="mPrice"></p>
+<p id="mDesc" class="desc"></p>
+
+<a id="waBtn" class="btn wa" target="_blank">Order on WhatsApp</a>
+<a id="upiBtn" class="btn upi" target="_blank">Pay via UPI</a>
+<a class="btn cod">Cash on Delivery Available</a>
 </div>
 </div>
 
 <div class="footer">
-© 2026 Urban Jeans Store • All India Delivery • WhatsApp Orders
-</div>
-
-<!-- MODAL -->
-<div id="productModal" class="modal">
-  <div class="modal-box">
-    <span class="close" onclick="closeModal()">×</span>
-    <img id="mImage" class="modal-img">
-    <h3 id="mTitle"></h3>
-    <p id="mPrice"></p>
-    <p id="mFeatures"></p>
-    <a id="waOrder" class="btn" target="_blank">Order on WhatsApp</a>
-  </div>
+© 2026 Urban Jeans Store • All India Delivery
 </div>
 
 <script>
-function openProduct(name, price, image, features){
-  document.getElementById("mTitle").innerText = name;
-  document.getElementById("mPrice").innerText = price;
-  document.getElementById("mFeatures").innerText = features;
-  document.getElementById("mImage").src = image;
-  document.getElementById("productModal").style.display = "flex";
+function openProduct(name, price, image, desc){
+document.getElementById("mName").innerText=name;
+document.getElementById("mPrice").innerText=price;
+document.getElementById("mDesc").innerText=desc;
+document.getElementById("mImg").src=image;
 
-  const msg = encodeURIComponent(
-    "Hello Urban Jeans Store 👋\n\n" +
-    "I want to order:\n" +
-    "🧾 Product: " + name + "\n" +
-    "💰 Price: " + price + "\n" +
-    "✨ Details: " + features + "\n\n" +
-    "Please confirm availability."
-  );
+const msg=encodeURIComponent(
+"Hello Urban Jeans Store 👋\n\n"+
+"🧾 Product: "+name+"\n"+
+"💰 Price: "+price+"\n"+
+"📝 Details: "+desc+"\n"+
+"📸 Image: "+location.origin+"/"+image+"\n\n"+
+"I want to order this product."
+);
 
-  document.getElementById("waOrder").href =
-    "https://wa.me/919318415910?text=" + msg;
+document.getElementById("waBtn").href="https://wa.me/919318415910?text="+msg;
+document.getElementById("upiBtn").href="upi://pay?pa=yourupi@bank&pn=Urban%20Jeans&am="+price.replace("₹","")+"&cu=INR";
+
+document.getElementById("modal").style.display="flex";
 }
-
-function closeModal(){
-  document.getElementById("productModal").style.display = "none";
-}
+function closeModal(){document.getElementById("modal").style.display="none";}
 </script>
 
 </body>
