@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Urban Menswear – Trusted Online Men Store</title>
+<title>Urban Menswear – Premium Men Store</title>
 
-<meta name="description" content="Premium Men Clothing Store. Order easily via WhatsApp. All India Delivery.">
+<meta name="description" content="Premium Men Clothing Store. Easy WhatsApp Order. All India Delivery.">
 <meta property="og:title" content="Urban Menswear – Premium Men Store">
 <meta property="og:description" content="Trusted Online Menswear Store • All India Delivery">
-<meta property="og:image" content="images/jeans1.jpg">
+<meta property="og:image" content="images/jeans1_1.jpg">
 
 <style>
 *{box-sizing:border-box}
@@ -18,7 +18,6 @@ body{
   font-family:system-ui;
   background:#f4f6f8;
   color:#111;
-  overflow:auto;
 }
 
 .header{
@@ -50,12 +49,7 @@ body{
 }
 .title{font-weight:600;margin:8px 0 4px}
 .price{font-weight:bold}
-.old{
-  text-decoration:line-through;
-  color:#888;
-  font-size:13px;
-  margin-left:6px;
-}
+.old{color:#888;font-size:13px;text-decoration:line-through;margin-left:6px}
 .desc{font-size:13px;color:#555}
 
 .section{
@@ -83,9 +77,8 @@ body{
   border-radius:16px;
   padding:16px;
   position:relative;
-
-  max-height:90vh;       /* ✅ scroll FIX */
-  overflow-y:auto;       /* ✅ scroll FIX */
+  max-height:90vh;
+  overflow-y:auto;
 }
 
 .close{
@@ -96,29 +89,25 @@ body{
   cursor:pointer;
 }
 
-.modal-img{
+/* IMAGE GALLERY */
+.main-img{
   width:100%;
   border-radius:12px;
   margin-bottom:10px;
 }
-
-label{
-  font-size:13px;
-  font-weight:600;
-}
-
-input, textarea{
-  width:100%;
-  padding:10px;
-  margin:6px 0 12px;
+.thumb-box img{
+  width:22%;
   border-radius:8px;
-  border:1px solid #ccc;
-  font-size:14px;
+  margin-right:4px;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+.thumb-box img.active{
+  border-color:#0f172a;
 }
 
-textarea{resize:none}
-
-.size-box span{
+/* SIZE + COLOR */
+.option-box span{
   display:inline-block;
   padding:8px 14px;
   margin:6px 6px 6px 0;
@@ -127,12 +116,22 @@ textarea{resize:none}
   font-size:14px;
   cursor:pointer;
 }
-
-.size-box span.active{
+.option-box span.active{
   background:#0f172a;
   color:#fff;
   border-color:#0f172a;
 }
+
+label{font-size:13px;font-weight:600}
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:6px 0 12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+textarea{resize:none}
 
 .btn{
   display:block;
@@ -166,18 +165,15 @@ textarea{resize:none}
 <div class="container">
 <div class="grid">
 
-<div class="card" onclick="openProduct('Men Slim Fit Jeans','₹799','images/jeans1.jpg')">
-  <img src="images/jeans1.jpg">
+<div class="card" onclick="openProduct(
+'Men Slim Fit Jeans',
+'₹799',
+['images/jeans1_1.jpg','images/jeans1_2.jpg','images/jeans1_3.jpg']
+)">
+  <img src="images/jeans1_1.jpg">
   <div class="title">Men Slim Fit Jeans</div>
   <div class="price">₹799 <span class="old">₹1,999</span></div>
-  <div class="desc">Premium daily wear jeans</div>
-</div>
-
-<div class="card" onclick="openProduct('Men Regular Fit Jeans','₹849','images/jeans2.jpg')">
-  <img src="images/jeans2.jpg">
-  <div class="title">Men Regular Fit Jeans</div>
-  <div class="price">₹849 <span class="old">₹2,199</span></div>
-  <div class="desc">Comfort fit jeans</div>
+  <div class="desc">Premium stretch denim</div>
 </div>
 
 </div>
@@ -195,22 +191,31 @@ textarea{resize:none}
 </div>
 </div>
 
-<!-- PRODUCT ORDER MODAL -->
+<!-- MODAL -->
 <div id="modal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeModal()">×</span>
 
-<img id="pImg" class="modal-img">
+<img id="mainImg" class="main-img">
+<div class="thumb-box" id="thumbs"></div>
+
 <h2 id="pName"></h2>
 <p id="pPrice"></p>
 
 <label>Select Size</label>
-<div class="size-box">
+<div class="option-box" id="sizes">
   <span onclick="selectSize(this)">28</span>
   <span onclick="selectSize(this)">30</span>
   <span onclick="selectSize(this)">32</span>
   <span onclick="selectSize(this)">34</span>
   <span onclick="selectSize(this)">36</span>
+</div>
+
+<label>Select Color</label>
+<div class="option-box" id="colors">
+  <span onclick="selectColor(this)">Blue</span>
+  <span onclick="selectColor(this)">Black</span>
+  <span onclick="selectColor(this)">Grey</span>
 </div>
 
 <label>Quantity</label>
@@ -236,14 +241,28 @@ textarea{resize:none}
 </div>
 
 <script>
-let product={}, selectedSize="";
+let product={}, selectedSize="", selectedColor="", images=[];
 
-function openProduct(name, price, img){
-  product={name, price, img};
+function openProduct(name, price, imgs){
+  product={name,price};
+  images=imgs;
   document.getElementById("pName").innerText=name;
   document.getElementById("pPrice").innerText=price;
-  document.getElementById("pImg").src=img;
+  document.getElementById("mainImg").src=imgs[0];
+
+  let thumbs="";
+  imgs.forEach((img,i)=>{
+    thumbs+=`<img src="${img}" onclick="changeImg('${img}',this)" class="${i==0?'active':''}">`;
+  });
+  document.getElementById("thumbs").innerHTML=thumbs;
+
   document.getElementById("modal").style.display="flex";
+}
+
+function changeImg(src,el){
+  document.getElementById("mainImg").src=src;
+  document.querySelectorAll(".thumb-box img").forEach(i=>i.classList.remove("active"));
+  el.classList.add("active");
 }
 
 function closeModal(){
@@ -251,13 +270,19 @@ function closeModal(){
 }
 
 function selectSize(el){
-  document.querySelectorAll(".size-box span").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll("#sizes span").forEach(s=>s.classList.remove("active"));
   el.classList.add("active");
   selectedSize=el.innerText;
 }
 
+function selectColor(el){
+  document.querySelectorAll("#colors span").forEach(s=>s.classList.remove("active"));
+  el.classList.add("active");
+  selectedColor=el.innerText;
+}
+
 function sendOrder(){
-  if(!selectedSize || !custName.value || !custPhone.value || !custAddress.value){
+  if(!selectedSize || !selectedColor || !custName.value || !custPhone.value || !custAddress.value){
     alert("Please fill all details");
     return;
   }
@@ -267,11 +292,12 @@ function sendOrder(){
 "🧾 Product: "+product.name+"\n"+
 "💰 Price: "+product.price+"\n"+
 "📏 Size: "+selectedSize+"\n"+
+"🎨 Color: "+selectedColor+"\n"+
 "🔢 Quantity: "+qty.value+"\n\n"+
 "👤 Name: "+custName.value+"\n"+
 "📞 Phone: "+custPhone.value+"\n"+
 "🏠 Address: "+custAddress.value+"\n\n"+
-"📸 Image: "+location.origin+"/"+product.img+"\n\n"+
+"📸 Image: "+location.origin+"/"+images[0]+"\n\n"+
 "Please confirm stock.";
 
   window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
