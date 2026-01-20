@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Urban Jeans Store – Premium Jeans Under ₹1000</title>
+<title>Urban Menswear – Premium Men Clothing</title>
 
 <!-- SEO -->
-<meta name="description" content="Premium jeans under ₹1000. All India delivery. Order via WhatsApp. UPI & COD available.">
-<meta name="keywords" content="jeans under 1000, men jeans india, women jeans, slim fit jeans">
+<meta name="description" content="Premium men jeans & menswear. All India delivery. Order via WhatsApp. UPI & COD available.">
+<meta name="keywords" content="men jeans india, menswear online, premium men clothing, jeans under 1000">
 
-<!-- WhatsApp / Social Preview -->
-<meta property="og:title" content="Urban Jeans Store – Premium Jeans Under ₹1000">
-<meta property="og:description" content="Premium Jeans • All India Delivery • COD & UPI Available">
+<!-- Social / WhatsApp Preview -->
+<meta property="og:title" content="Urban Menswear – Premium Men Clothing">
+<meta property="og:description" content="Premium Men Jeans • All India Delivery • COD & UPI Available">
 <meta property="og:image" content="https://davk4392-sketch.github.io/urban-jeans-store/images/jeans1.jpg">
 <meta property="og:url" content="https://davk4392-sketch.github.io/urban-jeans-store/">
 <meta property="og:type" content="website">
@@ -20,8 +20,9 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
-.header{background:#111827;color:#fff;padding:16px}
-.header h1{margin:0;font-size:22px}
+
+.header{background:#0f172a;color:#fff;padding:18px}
+.header h1{margin:0;font-size:24px}
 .header p{margin:6px 0 0;font-size:13px;opacity:.9}
 
 .search{padding:12px}
@@ -33,128 +34,199 @@ body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
 .container{padding:12px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 
-.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 6px 16px rgba(0,0,0,.08);cursor:pointer}
+.card{
+background:#fff;
+border-radius:14px;
+padding:10px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+cursor:pointer
+}
 .card img{width:100%;border-radius:10px}
 .title{font-weight:600;margin:8px 0 4px;font-size:14px}
 .rating{font-size:13px;color:#f59e0b}
-.price{font-weight:bold}
+.price{font-weight:bold;font-size:15px}
 .old{text-decoration:line-through;color:#888;font-size:13px;margin-left:6px}
 .desc{font-size:13px;color:#555;line-height:1.4}
 
-.section{background:#fff;padding:14px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.08);margin-bottom:12px}
+.section{
+background:#fff;
+padding:16px;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:14px
+}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center}
-.modal-box{background:#fff;width:92%;max-width:420px;border-radius:14px;padding:14px;position:relative}
-.close{position:absolute;right:12px;top:6px;font-size:22px;cursor:pointer}
-.modal-img{width:100%;border-radius:10px}
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+z-index:999;
+align-items:center;
+justify-content:center
+}
+.modal-box{
+background:#fff;
+width:94%;
+max-width:440px;
+border-radius:16px;
+padding:16px;
+position:relative
+}
+.close{
+position:absolute;
+right:14px;
+top:8px;
+font-size:24px;
+cursor:pointer
+}
+.modal-img{width:100%;border-radius:12px}
 
-.btn{display:block;text-align:center;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.size-box span{
+display:inline-block;
+border:1px solid #ccc;
+padding:6px 10px;
+margin:4px;
+border-radius:6px;
+font-size:13px;
+cursor:pointer
+}
+
+.qty{width:60px;padding:6px}
+
+.btn{
+display:block;
+text-align:center;
+padding:14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+margin-top:10px
+}
 .wa{background:#22c55e;color:#fff}
 .upi{background:#2563eb;color:#fff}
 .cod{background:#111;color:#fff}
 
-.footer{text-align:center;padding:16px;font-size:13px;color:#555}
+.footer{text-align:center;padding:18px;font-size:13px;color:#555}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-  <h1>Urban Jeans Store</h1>
-  <p>Premium Jeans • All India Delivery • Under ₹1000 • COD / UPI</p>
+<h1>Urban Menswear</h1>
+<p>Premium Men Clothing • All India Delivery • COD / UPI</p>
 </div>
 
 <div class="search">
-  <input placeholder="Search for jeans...">
+<input placeholder="Search men clothing...">
 </div>
 
 <div class="categories">
-  <span>Men</span><span>Women</span><span>Slim Fit</span><span>Regular</span>
+<span>Men Jeans</span>
+<span>Slim Fit</span>
+<span>Regular Fit</span>
+<span>Denim</span>
 </div>
 
 <div class="container">
 <div class="grid">
 
+<!-- PRODUCT 1 -->
 <div class="card" onclick="openProduct(
 'Men Slim Fit Jeans',
 '₹799',
 'images/jeans1.jpg',
-'Premium stretch denim • Daily wear • Long lasting'
+'Premium stretch denim • Slim fit • Daily wear'
 )">
 <img src="images/jeans1.jpg">
 <div class="title">Men Slim Fit Jeans</div>
-<div class="rating">★★★★★ (4.5)</div>
+<div class="rating">★★★★★ (4.6)</div>
 <div class="price">₹799 <span class="old">₹1,999</span></div>
-<div class="desc">Premium daily wear jeans</div>
+<div class="desc">Premium daily wear slim fit jeans</div>
 </div>
 
+<!-- PRODUCT 2 -->
 <div class="card" onclick="openProduct(
 'Men Regular Fit Jeans',
 '₹849',
 'images/jeans2.jpg',
-'Comfort fit • Strong stitching'
+'Comfort fit • Strong stitching • Long lasting'
 )">
 <img src="images/jeans2.jpg">
 <div class="title">Men Regular Fit Jeans</div>
 <div class="rating">★★★★☆ (4.4)</div>
 <div class="price">₹849 <span class="old">₹2,199</span></div>
-<div class="desc">Comfort regular fit jeans</div>
+<div class="desc">Comfortable regular fit jeans</div>
 </div>
 
 </div>
 </div>
 
 <div class="container">
-  <div class="section">
-    <h3>Why Shop With Us?</h3>
-    <p class="desc">
-      ✔ Trusted WhatsApp Store<br>
-      ✔ Premium Quality Checked<br>
-      ✔ Cash on Delivery Available<br>
-      ✔ All India Delivery<br>
-      ✔ Direct Seller Support
-    </p>
-  </div>
+<div class="section">
+<h3>Why Choose Urban Menswear?</h3>
+<p class="desc">
+✔ Premium Men-Only Collection<br>
+✔ Quality Checked Products<br>
+✔ Cash on Delivery Available<br>
+✔ All India Shipping<br>
+✔ Direct WhatsApp Support
+</p>
+</div>
 
-  <div class="section">
-    <h3>Delivery & Return</h3>
-    <p class="desc">
-      🚚 Delivery: 4–7 working days (All India)<br>
-      💵 Payment: UPI / WhatsApp / COD<br>
-      🔁 Return: Contact within 48 hours of delivery
-    </p>
-  </div>
+<div class="section">
+<h3>Delivery & Returns</h3>
+<p class="desc">
+🚚 Delivery: 4–7 working days (All India)<br>
+💵 Payment: UPI / COD<br>
+🔁 Return: Contact within 48 hours of delivery
+</p>
+</div>
 
-  <div class="section">
-    <h3>FAQs</h3>
-    <p class="desc">
-      <b>How to order?</b><br>
-      Click product → WhatsApp → Confirm<br><br>
-      <b>Payment methods?</b><br>
-      UPI & Cash on Delivery<br><br>
-      <b>Order updates?</b><br>
-      Directly on WhatsApp
-    </p>
-  </div>
+<div class="section">
+<h3>FAQs</h3>
+<p class="desc">
+<b>How to order?</b><br>
+Select product → Choose size → WhatsApp order<br><br>
+<b>Payment options?</b><br>
+UPI & Cash on Delivery<br><br>
+<b>Order updates?</b><br>
+Direct WhatsApp communication
+</p>
+</div>
 
-  <div class="section">
-    <h3>Contact</h3>
-    <p class="desc">
-      📞 WhatsApp: +91 93184 15910<br>
-      🕘 10 AM – 7 PM<br>
-      🇮🇳 All India Service
-    </p>
-  </div>
+<div class="section">
+<h3>Contact</h3>
+<p class="desc">
+📞 WhatsApp: +91 93184 15910<br>
+🕘 10 AM – 7 PM<br>
+🇮🇳 Serving All India
+</p>
+</div>
 </div>
 
 <!-- PRODUCT DETAIL MODAL -->
 <div id="modal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeModal()">×</span>
+
 <img id="mImg" class="modal-img">
 <h2 id="mName"></h2>
 <p id="mPrice"></p>
 <p id="mDesc" class="desc"></p>
+
+<h4>Select Size</h4>
+<div class="size-box">
+<span onclick="setSize('28')">28</span>
+<span onclick="setSize('30')">30</span>
+<span onclick="setSize('32')">32</span>
+<span onclick="setSize('34')">34</span>
+<span onclick="setSize('36')">36</span>
+</div>
+
+<h4>Quantity</h4>
+<input type="number" id="qty" class="qty" value="1" min="1">
 
 <a id="waBtn" class="btn wa" target="_blank">Order on WhatsApp</a>
 <a id="upiBtn" class="btn upi" target="_blank">Pay via UPI</a>
@@ -163,30 +235,40 @@ body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
 </div>
 
 <div class="footer">
-© 2026 Urban Jeans Store • All India Delivery
+© 2026 Urban Menswear • All India Delivery
 </div>
 
 <script>
+let selectedSize="";
+
+function setSize(size){selectedSize=size;}
+
 function openProduct(name, price, image, desc){
 document.getElementById("mName").innerText=name;
 document.getElementById("mPrice").innerText=price;
 document.getElementById("mDesc").innerText=desc;
 document.getElementById("mImg").src=image;
 
-const msg=encodeURIComponent(
-"Hello Urban Jeans Store 👋\n\n"+
+document.getElementById("waBtn").onclick=function(){
+let qty=document.getElementById("qty").value;
+let msg=encodeURIComponent(
+"Hello Urban Menswear 👋\n\n"+
 "🧾 Product: "+name+"\n"+
 "💰 Price: "+price+"\n"+
-"📝 Details: "+desc+"\n"+
+"📏 Size: "+selectedSize+"\n"+
+"🔢 Quantity: "+qty+"\n"+
 "📸 Image: "+location.origin+"/"+image+"\n\n"+
-"I want to order this product."
+"I want to place order."
 );
+window.open("https://wa.me/919318415910?text="+msg);
+};
 
-document.getElementById("waBtn").href="https://wa.me/919318415910?text="+msg;
-document.getElementById("upiBtn").href="upi://pay?pa=yourupi@bank&pn=Urban%20Jeans&am="+price.replace("₹","")+"&cu=INR";
+document.getElementById("upiBtn").href=
+"upi://pay?pa=yourupi@bank&pn=Urban%20Menswear&am="+price.replace("₹","")+"&cu=INR";
 
 document.getElementById("modal").style.display="flex";
 }
+
 function closeModal(){document.getElementById("modal").style.display="none";}
 </script>
 
