@@ -3,109 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Menswear – Premium Men Store</title>
 
-<title>Urban Menswear – Premium Men Clothing</title>
-
-<!-- SEO -->
-<meta name="description" content="Premium men jeans & menswear. All India delivery. Order via WhatsApp. UPI & COD available.">
-<meta name="keywords" content="men jeans india, menswear online, premium men clothing, jeans under 1000">
-
-<!-- Social / WhatsApp Preview -->
-<meta property="og:title" content="Urban Menswear – Premium Men Clothing">
-<meta property="og:description" content="Premium Men Jeans • All India Delivery • COD & UPI Available">
-<meta property="og:image" content="https://davk4392-sketch.github.io/urban-jeans-store/images/jeans1.jpg">
-<meta property="og:url" content="https://davk4392-sketch.github.io/urban-jeans-store/">
-<meta property="og:type" content="website">
+<meta name="description" content="Premium Men Jeans Store. All India Delivery. Order directly on WhatsApp.">
+<meta property="og:title" content="Urban Menswear – Premium Men Store">
+<meta property="og:description" content="Trusted Men Clothing Store • All India Delivery">
+<meta property="og:image" content="images/jeans1.jpg">
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui;background:#f4f6f8;color:#111}
-
+body{margin:0;font-family:system-ui;background:#f3f4f6;color:#111}
 .header{background:#0f172a;color:#fff;padding:18px}
 .header h1{margin:0;font-size:24px}
 .header p{margin:6px 0 0;font-size:13px;opacity:.9}
 
-.search{padding:12px}
-.search input{width:100%;padding:12px;border-radius:10px;border:1px solid #ddd}
+.container{padding:14px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 
-.categories{display:flex;gap:8px;overflow-x:auto;padding:0 12px 12px}
-.categories span{background:#e5e7eb;padding:8px 14px;border-radius:20px;font-size:13px}
-
-.container{padding:12px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-
-.card{
-background:#fff;
-border-radius:14px;
-padding:10px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-cursor:pointer
-}
+.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 10px 25px rgba(0,0,0,.08);cursor:pointer}
 .card img{width:100%;border-radius:10px}
-.title{font-weight:600;margin:8px 0 4px;font-size:14px}
-.rating{font-size:13px;color:#f59e0b}
-.price{font-weight:bold;font-size:15px}
+.title{font-weight:600;margin:8px 0 4px}
+.price{font-weight:bold}
 .old{text-decoration:line-through;color:#888;font-size:13px;margin-left:6px}
-.desc{font-size:13px;color:#555;line-height:1.4}
+.desc{font-size:13px;color:#555}
 
-.section{
-background:#fff;
-padding:16px;
-border-radius:14px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-margin-bottom:14px
-}
+.section{background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.08);margin-bottom:14px}
 
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-z-index:999;
-align-items:center;
-justify-content:center
-}
-.modal-box{
-background:#fff;
-width:94%;
-max-width:440px;
-border-radius:16px;
-padding:16px;
-position:relative
-}
-.close{
-position:absolute;
-right:14px;
-top:8px;
-font-size:24px;
-cursor:pointer
-}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);align-items:center;justify-content:center;z-index:999}
+.modal-box{background:#fff;width:94%;max-width:420px;border-radius:16px;padding:16px;position:relative}
+.close{position:absolute;right:14px;top:8px;font-size:24px;cursor:pointer}
 .modal-img{width:100%;border-radius:12px}
 
-.size-box span{
-display:inline-block;
-border:1px solid #ccc;
-padding:6px 10px;
-margin:4px;
-border-radius:6px;
-font-size:13px;
-cursor:pointer
-}
+label{font-size:13px;font-weight:600}
+input,select,textarea{width:100%;padding:10px;margin:6px 0 12px;border-radius:8px;border:1px solid #ccc}
 
-.qty{width:60px;padding:6px}
-
-.btn{
-display:block;
-text-align:center;
-padding:14px;
-border-radius:12px;
-text-decoration:none;
-font-weight:bold;
-margin-top:10px
-}
-.wa{background:#22c55e;color:#fff}
-.upi{background:#2563eb;color:#fff}
-.cod{background:#111;color:#fff}
+.btn{display:block;width:100%;padding:14px;border-radius:12px;border:none;font-weight:bold;background:#22c55e;color:#fff;font-size:16px}
 
 .footer{text-align:center;padding:18px;font-size:13px;color:#555}
 </style>
@@ -115,49 +47,24 @@ margin-top:10px
 
 <div class="header">
 <h1>Urban Menswear</h1>
-<p>Premium Men Clothing • All India Delivery • COD / UPI</p>
-</div>
-
-<div class="search">
-<input placeholder="Search men clothing...">
-</div>
-
-<div class="categories">
-<span>Men Jeans</span>
-<span>Slim Fit</span>
-<span>Regular Fit</span>
-<span>Denim</span>
+<p>Premium Men Clothing • All India Delivery • WhatsApp Order</p>
 </div>
 
 <div class="container">
 <div class="grid">
 
-<!-- PRODUCT 1 -->
-<div class="card" onclick="openProduct(
-'Men Slim Fit Jeans',
-'₹799',
-'images/jeans1.jpg',
-'Premium stretch denim • Slim fit • Daily wear'
-)">
+<div class="card" onclick="openProduct('Men Slim Fit Jeans','₹799','images/jeans1.jpg')">
 <img src="images/jeans1.jpg">
 <div class="title">Men Slim Fit Jeans</div>
-<div class="rating">★★★★★ (4.6)</div>
 <div class="price">₹799 <span class="old">₹1,999</span></div>
-<div class="desc">Premium daily wear slim fit jeans</div>
+<div class="desc">Premium daily wear jeans</div>
 </div>
 
-<!-- PRODUCT 2 -->
-<div class="card" onclick="openProduct(
-'Men Regular Fit Jeans',
-'₹849',
-'images/jeans2.jpg',
-'Comfort fit • Strong stitching • Long lasting'
-)">
+<div class="card" onclick="openProduct('Men Regular Fit Jeans','₹849','images/jeans2.jpg')">
 <img src="images/jeans2.jpg">
 <div class="title">Men Regular Fit Jeans</div>
-<div class="rating">★★★★☆ (4.4)</div>
 <div class="price">₹849 <span class="old">₹2,199</span></div>
-<div class="desc">Comfortable regular fit jeans</div>
+<div class="desc">Comfort fit jeans</div>
 </div>
 
 </div>
@@ -165,111 +72,86 @@ margin-top:10px
 
 <div class="container">
 <div class="section">
-<h3>Why Choose Urban Menswear?</h3>
+<h3>Why Choose Us</h3>
 <p class="desc">
-✔ Premium Men-Only Collection<br>
+✔ Trusted WhatsApp Store<br>
 ✔ Quality Checked Products<br>
-✔ Cash on Delivery Available<br>
-✔ All India Shipping<br>
-✔ Direct WhatsApp Support
-</p>
-</div>
-
-<div class="section">
-<h3>Delivery & Returns</h3>
-<p class="desc">
-🚚 Delivery: 4–7 working days (All India)<br>
-💵 Payment: UPI / COD<br>
-🔁 Return: Contact within 48 hours of delivery
-</p>
-</div>
-
-<div class="section">
-<h3>FAQs</h3>
-<p class="desc">
-<b>How to order?</b><br>
-Select product → Choose size → WhatsApp order<br><br>
-<b>Payment options?</b><br>
-UPI & Cash on Delivery<br><br>
-<b>Order updates?</b><br>
-Direct WhatsApp communication
-</p>
-</div>
-
-<div class="section">
-<h3>Contact</h3>
-<p class="desc">
-📞 WhatsApp: +91 93184 15910<br>
-🕘 10 AM – 7 PM<br>
-🇮🇳 Serving All India
+✔ All India Delivery<br>
+✔ Direct Seller Support
 </p>
 </div>
 </div>
 
-<!-- PRODUCT DETAIL MODAL -->
+<!-- MODAL -->
 <div id="modal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeModal()">×</span>
 
-<img id="mImg" class="modal-img">
-<h2 id="mName"></h2>
-<p id="mPrice"></p>
-<p id="mDesc" class="desc"></p>
+<img id="pImg" class="modal-img">
+<h2 id="pName"></h2>
+<p id="pPrice"></p>
 
-<h4>Select Size</h4>
-<div class="size-box">
-<span onclick="setSize('28')">28</span>
-<span onclick="setSize('30')">30</span>
-<span onclick="setSize('32')">32</span>
-<span onclick="setSize('34')">34</span>
-<span onclick="setSize('36')">36</span>
-</div>
+<label>Size</label>
+<select id="size">
+<option>28</option><option>30</option><option>32</option><option>34</option><option>36</option>
+</select>
 
-<h4>Quantity</h4>
-<input type="number" id="qty" class="qty" value="1" min="1">
+<label>Color</label>
+<select id="color">
+<option>Blue</option><option>Black</option><option>Grey</option>
+</select>
 
-<a id="waBtn" class="btn wa" target="_blank">Order on WhatsApp</a>
-<a id="upiBtn" class="btn upi" target="_blank">Pay via UPI</a>
-<a class="btn cod">Cash on Delivery Available</a>
+<label>Quantity</label>
+<input id="qty" type="number" value="1">
+
+<label>Your Name</label>
+<input id="name">
+
+<label>Mobile Number</label>
+<input id="phone">
+
+<label>Delivery Address</label>
+<textarea id="address"></textarea>
+
+<button class="btn" onclick="sendOrder()">BUY NOW</button>
 </div>
 </div>
 
 <div class="footer">
-© 2026 Urban Menswear • All India Delivery
+© 2026 Urban Menswear • All Rights Reserved
 </div>
 
 <script>
-let selectedSize="";
+let currentProduct={};
 
-function setSize(size){selectedSize=size;}
-
-function openProduct(name, price, image, desc){
-document.getElementById("mName").innerText=name;
-document.getElementById("mPrice").innerText=price;
-document.getElementById("mDesc").innerText=desc;
-document.getElementById("mImg").src=image;
-
-document.getElementById("waBtn").onclick=function(){
-let qty=document.getElementById("qty").value;
-let msg=encodeURIComponent(
-"Hello Urban Menswear 👋\n\n"+
-"🧾 Product: "+name+"\n"+
-"💰 Price: "+price+"\n"+
-"📏 Size: "+selectedSize+"\n"+
-"🔢 Quantity: "+qty+"\n"+
-"📸 Image: "+location.origin+"/"+image+"\n\n"+
-"I want to place order."
-);
-window.open("https://wa.me/919318415910?text="+msg);
-};
-
-document.getElementById("upiBtn").href=
-"upi://pay?pa=yourupi@bank&pn=Urban%20Menswear&am="+price.replace("₹","")+"&cu=INR";
-
+function openProduct(name,price,img){
+currentProduct={name,price,img};
+document.getElementById("pName").innerText=name;
+document.getElementById("pPrice").innerText=price;
+document.getElementById("pImg").src=img;
 document.getElementById("modal").style.display="flex";
 }
 
-function closeModal(){document.getElementById("modal").style.display="none";}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+function sendOrder(){
+let msg=
+"Hello Urban Menswear 👋\n\n"+
+"🧾 Product: "+currentProduct.name+"\n"+
+"💰 Price: "+currentProduct.price+"\n"+
+"📏 Size: "+size.value+"\n"+
+"🎨 Color: "+color.value+"\n"+
+"🔢 Quantity: "+qty.value+"\n\n"+
+"👤 Name: "+name.value+"\n"+
+"📞 Phone: "+phone.value+"\n"+
+"🏠 Address: "+address.value+"\n\n"+
+"📸 Image: "+location.href.replace('index.html','')+currentProduct.img+"\n\n"+
+"Please confirm stock.";
+
+window.open("https://wa.me/919318415910?text="+encodeURIComponent(msg));
+}
 </script>
 
 </body>
